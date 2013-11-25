@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://modelo.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://modelo.com" xmlns:intf="http://modelo.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://modelo.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getChave">
+    <complexType>
+     <sequence>
+      <element name="codEmpresa" type="xsd:int"/>
+      <element name="codSoft" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getChaveResponse">
+    <complexType>
+     <sequence>
+      <element name="getChaveReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getChaveRequest">
+
+      <wsdl:part element="impl:getChave" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getChaveResponse">
+
+      <wsdl:part element="impl:getChaveResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ConsultaChave">
+
+      <wsdl:operation name="getChave">
+
+         <wsdl:input message="impl:getChaveRequest" name="getChaveRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getChaveResponse" name="getChaveResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ConsultaChaveSoapBinding" type="impl:ConsultaChave">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getChave">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getChaveRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getChaveResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ConsultaChaveService">
+
+      <wsdl:port binding="impl:ConsultaChaveSoapBinding" name="ConsultaChave">
+
+         <wsdlsoap:address location="http://localhost:8080/WebServiceValida/services/ConsultaChave"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
